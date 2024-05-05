@@ -15,10 +15,10 @@ from flask import Flask, jsonify
 engine = create_engine("sqlite:///hawaii.sqlite")
 
 # reflect an existing database into a new model
-Base = automap_base()
+Base = automap_base
 
 # reflect the tables
-Base.prepare(engine, reflect=True)
+Base.prepare(autoload_with=engine)
 
 # Save references to each table
 Measurement = Base.classes.measurement
